@@ -1,7 +1,7 @@
 import logo from '../frangue.png'
 import CartWidget from './CartWidget';
 
-const NavBar = () => {
+const NavBar = (props) => {
     return (
         <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
@@ -18,7 +18,7 @@ const NavBar = () => {
 {/*             <nav>
                 <button type="button" className="btn">Inicie Sesión</button>                                               
             </nav>
- */}            <CartWidget />
+ */}            <CartWidget items={props.items}/>
         </div>
 
 
