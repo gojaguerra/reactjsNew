@@ -19,7 +19,6 @@ function App() {
         <NavBar items={items}/>
       </header>
         <ItemListContainer Saludo="Desafio Clase #5" />
-
         <ItemCount stock={stock} sumar={sumar} restar={restar} items={items} />
       {/* {items === 10 && <Boton />} */}
     </div>
