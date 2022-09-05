@@ -21,7 +21,7 @@ const Item = ({data}) => {
         <Card.Text>{data.description}</Card.Text>
         <Card.Text>Precio: ${data.price}</Card.Text>
         <Button className='btn bg-dark' onClick={increment} disabled={cantidad>=data.stock} >+</Button>
-        <Form.Text>{cantidad}</Form.Text>
+        <Form.Text className='texto1'>{cantidad}</Form.Text>
         <Button className='btn bg-dark' onClick={decrement} disabled={cantidad<1} >-</Button>
         <Button className='btn-primary' onClick={()=>{console.log(`agregaste ${cantidad} producto/s`)}}>Agregar</Button>
       </Card.Body>
