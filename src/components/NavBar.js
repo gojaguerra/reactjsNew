@@ -1,28 +1,54 @@
-import logo from '../frangue.png'
+import React from 'react'
+import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import NavDropdown from 'react-bootstrap/NavDropdown'
 import CartWidget from './CartWidget';
+import logo from '../frangue.png'
 
-const NavBar = (props) => {
-    return (
-        <div className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <nav className="Navegacion">
-                <ul className="menu">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="pages/productos.html">Productos</a></li>
-                    <li><a href="pages/servicios.html">Servicios</a></li>
-                    <li><a href="pages/contacto.html">Contacto</a></li>
-                    <li><a href="pages/trabajos.html">Clientes</a></li>
-                    <li><a href="pages/quienes-somos.html">Quienes Somos</a></li>
-                </ul>
-            </nav>
-{/*             <nav>
-                <button type="button" className="btn">Inicie Sesión</button>                                               
-            </nav>
- */}            <CartWidget items={props.items}/>
-        </div>
+//children==>parámetro desestructurado
+function NavBar(props) {
+    return (<>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Container>
+            <img src={logo}
+                /* width="30"
+                height="30" */
+                className="d-inline-block align-top App-logo"
+                alt="React Bootstrap logo1"
+            />
+          <Navbar.Brand href="#home">Bettert Call Frangue</Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="#features">Features</Nav.Link>
+              <Nav.Link href="#pricing">Pricing</Nav.Link>
+              <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">
+                  Another action
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">
+                  Separated link
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+{/*             <Nav>
+              <img className='w-25' height='65' src='https://cdn-icons-png.flaticon.com/512/107/107831.png' alt='Imagen carrito'/>
+              <Nav.Link href="#deets">More deets</Nav.Link>
+              <Nav.Link eventKey={2} href="#memes">
+                Dank memes
+              </Nav.Link>
+            </Nav> */}
+            <CartWidget items={props.items}/>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      {/* {children} */}
+    </>
+    );
+  }
 
-
-)
-};
-
-export default NavBar;
+export default NavBar
