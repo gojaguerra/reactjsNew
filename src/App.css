@@ -116,3 +116,24 @@
   margin: 5px;
   font-size: 2rem;
 }
+
+.textoTil {
+  font-size: 16px;
+  padding: 5px;
+}
+
+.textoDesc {
+  font-size: 12px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.textoPrec {
+  font-size: 14px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.btn-warning {
+  margin: 10px;
+}
