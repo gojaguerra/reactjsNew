@@ -1,39 +1,40 @@
 import React from 'react'
 import logo from "../../logo.svg";
 import getFetch from '../../Data/data'
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
+import { useParams } from 'react-router-dom';
+import { Data } from '../../Data/data';
 
-const ItemDetailContainer = ({ Saludo }) => {
+const ItemDetailContainer = () => {
+  const { id } = useParams();
   const[data, setData] = useState([]);
   const[loading, setLoading] = useState(true);
-  const idSeleccion = 3;
 
-  useEffect(() => {
-      getFetch
-      .then((response) => { 
-          const prodFiltro = response.find((el) => el.id === idSeleccion);
-          setData(prodFiltro);
-      })
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
-    },[])
+const getProduct = () => {
+
+  const prodFiltro = Data.find((el) => el.id === id);
+  setData(prodFiltro);
+  
+ /*  const prodFiltro = Data.filter((el) => el.id === id);
+  setData(prodFiltro[0]); */
+
+ };
+
+useEffect(() => {
+  getProduct();
+}, []);
 
   return (
     <>
-      {loading ? (
-        <>
-          <img src={logo} className="App-logo" alt="logo" />
-          <span>Cargando...</span>
-        </>
-      ) : (
-        <>
-          <h1 className="texto">{Saludo}</h1>
+         <>
+          {/* <h1 className="texto">{Saludo}</h1> */}
           <div className='card1'>
+            
             <ItemDetail data={data} />
           </div>  
         </>  
-      )}
+
     </>
   );
 };

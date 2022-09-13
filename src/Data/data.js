@@ -1,5 +1,5 @@
-const Data = [{
-        id: 1,
+export const Data = [{
+        id: '1',
         name: "Lampara Colgante",
         description: "Lampara de pared, madera de eucalipto, foco vintage.",
         price: 4500,
@@ -7,7 +7,7 @@ const Data = [{
         stock: 10
     },
     {
-        id: 2,
+        id: '2',
         name: "Soporte Bicicleta",
         description: "Encastre metalico en eje rueda delantera",
         price: 6500,
@@ -15,7 +15,7 @@ const Data = [{
         stock: 10
     },
     {
-        id: 3,
+        id: '3',
         name: "Escritorio Revatible",
         description: "Estructura metalica, tapa de paraiso.",
         price: 8000,
@@ -23,7 +23,7 @@ const Data = [{
         stock: 10
     },
     {
-        id: 4,
+        id: '4',
         name: "Tablas para Picada",
         description: "Madera de eucalipto. Incluye cera para mantenimiento.",
         price: 3000,
@@ -31,7 +31,7 @@ const Data = [{
         stock: 10
     },
     {
-        id: 5,
+        id: '5',
         name: "Perchero de Pared",
         description: "Madera de eucalipto laqueada con perchas aluminio mate.",
         price: 5000,
@@ -39,7 +39,7 @@ const Data = [{
         stock: 10
     },
     {
-        id: 6,
+        id: '6',
         name: "Lampara Hexagonal",
         description: "Lampara de mesa, madera de eucalipto, con foco vintage.",
         price: 7000,
@@ -47,7 +47,7 @@ const Data = [{
         stock: 10
     },
     {
-        id: 7,
+        id: '7',
         name: "Perchero Gancho Hamaca",
         description: "Madera de eucalipto laqueada con perchas de hamaca Paraguaya.",
         price: 5000,
@@ -55,7 +55,7 @@ const Data = [{
         stock: 10
     },
     {
-        id: 8,
+        id: '8',
         name: "Cuadro para Fotos",
         description: "Marco en madera de Kiri. Incluye diez broches para colgar fotosgit.",
         price: 4500,

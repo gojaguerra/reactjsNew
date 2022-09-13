@@ -4,14 +4,17 @@ import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 
 const Item = ({data}) => {
+    
     const[cantidad,setCantidad]=useState(1)
 
     const increment=()=>{
         setCantidad(actualValor=>actualValor+1)
     }
+
     const decrement=()=>{
         setCantidad(actualValor=>actualValor-1)
     }
+    console.log(data);
   return (
     <>
     <Card border="primary" style={{ width: '18rem' }}>
