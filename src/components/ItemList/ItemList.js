@@ -2,7 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Item from '../Item/Item'
 
-const ItemList = ({products}) => {
+const ItemList = ({products,categoria}) => {
+
+  console.log("category",categoria);
+
   return (
     <>
         {products.map((item) => (

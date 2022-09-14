@@ -4,7 +4,8 @@ export const Data = [{
         description: "Lampara de pared, madera de eucalipto, foco vintage.",
         price: 4500,
         image: "../img/carrito01.jpeg",
-        stock: 10
+        stock: 10,
+        category: "hogar"
     },
     {
         id: '2',
@@ -12,7 +13,8 @@ export const Data = [{
         description: "Encastre metalico en eje rueda delantera",
         price: 6500,
         image: "../img/carrito02.jpeg",
-        stock: 10
+        stock: 10,
+        category: "hogar"
     },
     {
         id: '3',
@@ -20,7 +22,8 @@ export const Data = [{
         description: "Estructura metalica, tapa de paraiso.",
         price: 8000,
         image: "../img/carrito03.jpeg",
-        stock: 10
+        stock: 10,
+        category: "industria"
     },
     {
         id: '4',
@@ -28,7 +31,8 @@ export const Data = [{
         description: "Madera de eucalipto. Incluye cera para mantenimiento.",
         price: 3000,
         image: "../img/carrito04.jpeg",
-        stock: 10
+        stock: 10,
+        category: "hogar"
     },
     {
         id: '5',
@@ -36,7 +40,8 @@ export const Data = [{
         description: "Madera de eucalipto laqueada con perchas aluminio mate.",
         price: 5000,
         image: "../img/carrito05.jpeg",
-        stock: 10
+        stock: 10,
+        category: "hogar"
     },
     {
         id: '6',
@@ -44,7 +49,8 @@ export const Data = [{
         description: "Lampara de mesa, madera de eucalipto, con foco vintage.",
         price: 7000,
         image: "../img/carrito06.jpeg",
-        stock: 10
+        stock: 10,
+        category: "hogar"
     },
     {
         id: '7',
@@ -52,7 +58,8 @@ export const Data = [{
         description: "Madera de eucalipto laqueada con perchas de hamaca Paraguaya.",
         price: 5000,
         image: "../img/carrito07.jpeg",
-        stock: 10
+        stock: 10,
+        category: "industria"
     },
     {
         id: '8',
@@ -60,7 +67,8 @@ export const Data = [{
         description: "Marco en madera de Kiri. Incluye diez broches para colgar fotosgit.",
         price: 4500,
         image: "../img/carrito08.jpeg",
-        stock: 10
+        stock: 10,
+        category: "otros"
     },
 ]
 

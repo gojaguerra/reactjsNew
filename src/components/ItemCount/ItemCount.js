@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from 'react'
+import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
@@ -22,14 +23,10 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   return (
     <div className="spinner">
-      <Button className='btn-warning' onClick={restar}>
-        -
-      </Button>
-      <div className="textoTilt"> {initialItem} </div>
-      <Button className='btn-warning' onClick={sumar}>
-        +
-      </Button>
-      <Button className='btn-warning' onClick={handleOnAdd}>Agregar al Carrito</Button>
+        <Button className='btn bg-dark' onClick={sumar} disabled={initialItem>=stock} >+</Button>
+        <Form.Text className='texto1'>{initialItem}</Form.Text>
+        <Button className='btn bg-dark' onClick={restar} disabled={initialItem<1} >-</Button>
+        <Button className='btn-primary' onClick={handleOnAdd}>Agregar</Button>
     </div>
   );
 };
