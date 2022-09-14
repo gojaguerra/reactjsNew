@@ -11,13 +11,13 @@ const ItemCount = ({ stock, initial, onAdd }) => {
             : alert('Se alcanzo el máximo de stock del producto');
     };
 
-    const restar = () => {
+  const restar = () => {
         initialItem > 0 
             ? setInitialItem(initialItem - 1) 
             : alert('No se pueden introducir valores negativos');
     };
 
-    const handleOnAdd = () => {
+  const handleOnAdd = () => {
         if (initialItem <= stock) onAdd(initialItem);
     };
 
