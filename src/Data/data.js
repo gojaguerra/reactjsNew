@@ -68,7 +68,7 @@ export const Data = [{
         price: 4500,
         image: "../img/carrito08.jpeg",
         stock: 10,
-        category: "otros"
+        category: "otras"
     },
 ]
 

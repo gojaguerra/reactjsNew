@@ -30,7 +30,7 @@ function NavBar(props) {
                 <NavDropdown.Item href="/category/industria">
                   Industria
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Otras Categorias</NavDropdown.Item>
+                <NavDropdown.Item href="/category/otras">Otras Categorias</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">
                   Separated link
