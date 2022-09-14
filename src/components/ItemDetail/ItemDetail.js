@@ -8,7 +8,7 @@ const ItemDetail = ({ data }) => {
     
   const handleOnAdd = (cantidad)=>{
     alert(`Se agrego ${cantidad} producto al carrito`);
-    /* setItems(cantidad+1); */
+    
 };
 
   return (
