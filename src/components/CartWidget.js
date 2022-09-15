@@ -7,8 +7,8 @@ const CartWidget = (props) => {
      <Nav.Link href="/cart">
         <i className="fa-solid fa-cart-shopping carrito"></i>
      </Nav.Link>
-    <p>Carrito:{props.items}</p>
-    </>
+     <Nav.Link href="/cart"> {props.items}</Nav.Link>
+     </>
   )
 }
 
