@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Button } from 'react-bootstrap'
 /* import Form from 'react-bootstrap/Form'; */
 import Card from 'react-bootstrap/Card';
@@ -34,11 +34,11 @@ const ItemDetail = ({ data, setItems }) => {
         <Card.Text>{data.description}</Card.Text>
         <Card.Text>Precio: ${data.price}</Card.Text>
         {estadoCarrito===false?
-        <ItemCount stock={data.stock} initial={1} onAdd={handleOnAdd} setInitialItem={setInitialItem} initialItem={initialItem}/>
+          <ItemCount stock={data.stock} initial={1} onAdd={handleOnAdd} setInitialItem={setInitialItem} initialItem={initialItem}/>
         :
-        <Nav.Link href="/cart">
-            <Button className='btn-primary btn-padding' onClick={handleClick} disabled={initialItem<1} >Terminar Compra</Button>
-        </Nav.Link>
+          <Nav.Link href="/cart">
+              <Button className='btn-primary btn-padding' onClick={handleClick} disabled={initialItem<1} >Terminar Compra</Button>
+          </Nav.Link>
         }
       </Card.Body>
       </Card>

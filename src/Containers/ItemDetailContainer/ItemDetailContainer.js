@@ -24,14 +24,12 @@ useEffect(() => {
 
   return (
     <>
-         <>
-          {/* <h1 className="texto">{Saludo}</h1> */}
-          <div className='card1'>
-            
-            <ItemDetail data={data} setItems={setItems}/>
-          </div>  
-        </>  
-
+      <>
+        {/* <h1 className="texto">{Saludo}</h1> */}
+        <div className='card1'>
+          <ItemDetail data={data} setItems={setItems}/>
+        </div>  
+      </>  
     </>
   );
 };
