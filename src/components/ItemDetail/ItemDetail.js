@@ -31,7 +31,7 @@ const ItemDetail = ({ data }) => {
         {/* <Button className='btn-primary btn-padding' onClick={handleClick}>Agregar</Button> */}
         
         <Nav.Link href="/cart">
-            <Button className='btn-primary btn-padding' onClick={handleClick}>Agregar al Carrito</Button>
+            <Button className='btn-primary btn-padding' onClick={handleClick} disabled={initialItem<1} >Agregar al Carrito</Button>
         </Nav.Link>
 
 {/*         <Button className='btn bg-dark' onClick={increment} disabled={cantidad>=data.stock} >+</Button>
