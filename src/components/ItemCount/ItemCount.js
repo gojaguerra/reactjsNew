@@ -26,7 +26,7 @@ const ItemCount = ({ stock, initial, onAdd, setInitialItem, initialItem }) => {
         <Button className='btn bg-dark' onClick={sumar} disabled={initialItem>=stock} >+</Button>
         <Form.Text className='texto1'>{initialItem}</Form.Text>
         <Button className='btn bg-dark' onClick={restar} disabled={initialItem<1} >-</Button>
-        {/* <Button className='btn-primary btn-padding' onClick={handleOnAdd}>Agregar</Button> */}
+        <Button className='btn-primary btn-padding' onClick={handleOnAdd} disabled={initialItem<1}>Agregar</Button>
     </div>
   );
 };

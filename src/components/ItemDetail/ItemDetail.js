@@ -4,18 +4,24 @@ import { Button } from 'react-bootstrap'
 import Card from 'react-bootstrap/Card';
 import ItemCount from "../ItemCount/ItemCount";
 import Nav from 'react-bootstrap/Nav'
+/* import { Link } from 'react-router-dom'; */
+/* import { Navigate } from 'react-router-dom'; */
 
-const ItemDetail = ({ data }) => {
+const ItemDetail = ({ data, setItems }) => {
 
+  const [estadoCarrito, setEstadoCarrito] = useState(false);
   const initial=1;
   const [initialItem, setInitialItem] = useState(initial);
     
   const handleOnAdd = (cantidad)=>{
+    setEstadoCarrito(true);
+    setItems(cantidad);
     alert(`Se agrego ${cantidad} producto al carrito`);
 
   };
   const handleClick = () =>{
-    alert(`Se agrego ${initialItem} producto al carrito`);
+    /* Navigate("/cart"); */
+    /* alert(`Se agrego ${initialItem} producto al carrito`); */
 
   };
 
@@ -27,17 +33,13 @@ const ItemDetail = ({ data }) => {
         <Card.Title>{data.name}</Card.Title>
         <Card.Text>{data.description}</Card.Text>
         <Card.Text>Precio: ${data.price}</Card.Text>
+        {estadoCarrito===false?
         <ItemCount stock={data.stock} initial={1} onAdd={handleOnAdd} setInitialItem={setInitialItem} initialItem={initialItem}/>
-        {/* <Button className='btn-primary btn-padding' onClick={handleClick}>Agregar</Button> */}
-        
+        :
         <Nav.Link href="/cart">
-            <Button className='btn-primary btn-padding' onClick={handleClick} disabled={initialItem<1} >Agregar al Carrito</Button>
+            <Button className='btn-primary btn-padding' onClick={handleClick} disabled={initialItem<1} >Terminar Compra</Button>
         </Nav.Link>
-
-{/*         <Button className='btn bg-dark' onClick={increment} disabled={cantidad>=data.stock} >+</Button>
-        <Form.Text className='texto1'>{cantidad}</Form.Text>
-        <Button className='btn bg-dark' onClick={decrement} disabled={cantidad<1} >-</Button>
-        <Button className='btn-primary' onClick={()=>{console.log(`agregaste ${cantidad} producto/s`)}}>Agregar</Button> */}
+        }
       </Card.Body>
       </Card>
     </>

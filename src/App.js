@@ -21,7 +21,7 @@ function App() {
         <div className="aaApp-items" id="producto-contenedor">
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
-            <Route path="detail/:id" element={<ItemDetailContainer />} />
+            <Route path="detail/:id" element={<ItemDetailContainer setItems={setItems}/>} />
             <Route path="category/:categoryName" element={<ItemListContainer />} />
           </Routes>
           {/* <ItemDetailContainer Saludo="(Detalle) - Bienvenidos a la Tienda Virtual" /> */}
