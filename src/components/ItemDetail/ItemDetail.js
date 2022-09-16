@@ -4,11 +4,14 @@ import { Button } from 'react-bootstrap'
 import Card from 'react-bootstrap/Card';
 import ItemCount from "../ItemCount/ItemCount";
 import Nav from 'react-bootstrap/Nav'
+import { CartContext } from '../../context/CartContext';
+
 /* import { Link } from 'react-router-dom'; */
 /* import { Navigate } from 'react-router-dom'; */
 
 const ItemDetail = ({ data, setItems }) => {
 
+  const { addToCart }=useContext(CartContext);
   const [estadoCarrito, setEstadoCarrito] = useState(false);
   const initial=1;
   const [initialItem, setInitialItem] = useState(initial);
@@ -16,6 +19,7 @@ const ItemDetail = ({ data, setItems }) => {
   const handleOnAdd = (cantidad)=>{
     setEstadoCarrito(true);
     setItems(cantidad);
+    addToCart(data, cantidad);
     alert(`Se agrego ${cantidad} producto al carrito`);
 
   };
