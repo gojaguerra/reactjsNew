@@ -9,7 +9,7 @@ import { CartContext } from '../../context/CartContext';
 /* import { Link } from 'react-router-dom'; */
 /* import { Navigate } from 'react-router-dom'; */
 
-const ItemDetail = ({ data, setItems }) => {
+const ItemDetail = ({ data }) => {
 
   const { addToCart }=useContext(CartContext);
   const [estadoCarrito, setEstadoCarrito] = useState(false);
@@ -18,7 +18,6 @@ const ItemDetail = ({ data, setItems }) => {
     
   const handleOnAdd = (cantidad)=>{
     setEstadoCarrito(true);
-    setItems(cantidad);
     addToCart(data, cantidad);
     alert(`Se agrego ${cantidad} producto al carrito`);
 
