@@ -17,11 +17,9 @@ const ItemDetail = ({ data }) => {
   const [initialItem, setInitialItem] = useState(initial);
     
   const handleOnAdd = (cantidad)=>{
-    setEstadoCarrito(true);
-    addToCart(data, cantidad);
-    alert(`Se agrego ${cantidad} producto al carrito`);
+    setEstadoCarrito(addToCart(data, cantidad));
+    };
 
-  };
   const handleClick = () =>{
     /* Navigate("/cart"); */
     /* alert(`Se agrego ${initialItem} producto al carrito`); */

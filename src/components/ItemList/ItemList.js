@@ -4,8 +4,6 @@ import Item from '../Item/Item'
 
 const ItemList = ({products,categoria}) => {
 
-  console.log("category",categoria);
-
   return (
     <>
         {products.map((item) => (
