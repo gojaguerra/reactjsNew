@@ -11,7 +11,7 @@ import { CartContext } from '../../context/CartContext';
 
 const ItemDetail = ({ data }) => {
 
-  const { addToCart }=useContext(CartContext);
+  const { addToCart, removeItem }=useContext(CartContext);
   const [estadoCarrito, setEstadoCarrito] = useState(false);
   const initial=1;
   const [initialItem, setInitialItem] = useState(initial);
@@ -24,6 +24,11 @@ const ItemDetail = ({ data }) => {
     /* Navigate("/cart"); */
     /* alert(`Se agrego ${initialItem} producto al carrito`); */
 
+  };
+
+  const handleBorrar = ()=>{
+    removeItem(data.id);
+    /* console.log(cart); */
   };
 
   return (
@@ -41,6 +46,7 @@ const ItemDetail = ({ data }) => {
               <Button className='btn-primary btn-padding' onClick={handleClick} disabled={initialItem<1} >Terminar Compra</Button>
           </Nav.Link>
         }
+        <Button className='btn-warning' onClick={handleBorrar}>Borrar</Button>
       </Card.Body>
       </Card>
     </>
