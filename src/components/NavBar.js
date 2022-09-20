@@ -44,7 +44,7 @@ function NavBar(props) {
                 Dank memes
               </Nav.Link>
             </Nav> */}
-            <CartWidget items={props.items}/>
+            <CartWidget />
           </Navbar.Collapse>
         </Container>
       </Navbar>

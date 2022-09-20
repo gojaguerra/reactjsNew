@@ -6,7 +6,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import Nav from 'react-bootstrap/Nav'
 import { CartContext } from '../../context/CartContext';
 
-/* import { Link } from 'react-router-dom'; */
+import { Link } from 'react-router-dom';
 /* import { Navigate } from 'react-router-dom'; */
 
 const ItemDetail = ({ data }) => {
@@ -47,6 +47,7 @@ const ItemDetail = ({ data }) => {
           </Nav.Link>
         }
         <Button className='btn-warning' onClick={handleBorrar}>Borrar</Button>
+        <Link to={"/"}>Volver</Link>
       </Card.Body>
       </Card>
     </>

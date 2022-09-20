@@ -1,21 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer  from './Containers/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from "./Containers/ItemDetailContainer/ItemDetailContainer";
-import { CartProvider } from './context/CartContext';
+import { CartProvider } from './context/cartProvider';
 
 function App() {
 
-  const [items, setItems] = useState(0);
+  /* const [items, setItems] = useState(0); */
   
   return (
     <CartProvider>
       <BrowserRouter>
         <div className="App">
           <header className="App-header">
-            <NavBar items={items}/>
+            <NavBar />
           </header>
           <div className="aaApp-items" id="producto-contenedor">
             <Routes>
