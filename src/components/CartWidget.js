@@ -1,18 +1,18 @@
-import React, { useContext } from 'react'
-import { CartContext } from "../context/CartContext"
-import Nav from 'react-bootstrap/Nav'
+import React, { useContext } from 'react';
+import { CartContext } from "../context/CartContext";
+import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
   const { cart } = useContext(CartContext);
   const quantityCart = cart.reduce((acumulador, cantidad) => acumulador + cantidad.quantity, 0);
   
    return (
-    <>
-     <Nav.Link href="/cart">
-        <i className="fa-solid fa-cart-shopping carrito"></i>
-     </Nav.Link>
-     <Nav.Link href="/cart"> {quantityCart}</Nav.Link>
-     </>
+   <>
+     <Link className='cartCant' to={"/cart"}>
+         <i className="fa-solid fa-cart-shopping carrito"></i>
+     </Link>
+     <Link className='cartCant' to={"/cart"}>{quantityCart}</Link>
+   </>
   )
 }
 

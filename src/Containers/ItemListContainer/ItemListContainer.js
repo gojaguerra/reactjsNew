@@ -4,6 +4,7 @@ import { useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemList from '../../components/ItemList/ItemList'
 import { Data } from '../../Data/data';
+import Spinner from 'react-bootstrap/Spinner';
 
 const ItemListContainer = () => {
     
@@ -31,7 +32,11 @@ const ItemListContainer = () => {
   return (
   <>
     {
-    loading?<span>Cargando...</span>:
+    loading ? 
+    <Spinner animation="border" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>
+    :
     <ItemList products={data} categoria={categoryName} ></ItemList>
     }
   </>

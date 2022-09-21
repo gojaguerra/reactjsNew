@@ -141,3 +141,15 @@
 .btn-padding {
   margin: 5px;
 }
+
+.cartCant {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+}
+
+.cartCant:hover {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+}
