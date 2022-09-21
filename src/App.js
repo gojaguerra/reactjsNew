@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import ItemListContainer  from './Containers/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from "./Containers/ItemDetailContainer/ItemDetailContainer";
 import { CartProvider } from './context/cartProvider';
+import Cart from './components/Cart/Cart';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             <Routes>
               <Route path="/" element={<ItemListContainer />} />
               <Route path="detail/:id" element={<ItemDetailContainer />} />
+              <Route path="cart" element={<Cart />} />
               <Route path="category/:categoryName" element={<ItemListContainer />} />
             </Routes>
             {/* <ItemDetailContainer Saludo="(Detalle) - Bienvenidos a la Tienda Virtual" /> */}

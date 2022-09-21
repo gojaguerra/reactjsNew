@@ -5,9 +5,8 @@ import Card from 'react-bootstrap/Card';
 import ItemCount from "../ItemCount/ItemCount";
 import Nav from 'react-bootstrap/Nav'
 import { CartContext } from '../../context/CartContext';
-
 import { Link } from 'react-router-dom';
-/* import { Navigate } from 'react-router-dom'; */
+
 
 const ItemDetail = ({ data }) => {
 
@@ -42,9 +41,10 @@ const ItemDetail = ({ data }) => {
         {estadoCarrito===false?
           <ItemCount stock={data.stock} initial={1} onAdd={handleOnAdd} setInitialItem={setInitialItem} initialItem={initialItem}/>
         :
-          <Nav.Link href="/cart">
-              <Button className='btn-primary btn-padding' onClick={handleClick} disabled={initialItem<1} >Terminar Compra</Button>
-          </Nav.Link>
+          <Link
+            to={'/cart'} >
+            <Button className='btn-warning' onClick={handleClick}>Terminar Comprar</Button>        
+          </Link>  
         }
         <Button className='btn-warning' onClick={handleBorrar}>Borrar</Button>
         <Link to={"/"}>Volver</Link>
