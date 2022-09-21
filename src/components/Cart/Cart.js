@@ -8,7 +8,9 @@ const Cart = () => {
     return (
         <div>
             <h1>CARRO</h1>
-            {cart.length===0 ? (<h2>NO HAY PRODUCTOS</h2>) : (
+            { cart.length===0 ? (<h2>NO HAY PRODUCTOS</h2>) 
+            : 
+            (
                 <>
                     {cart.map((item) => (
                         <div key={item.id}>

@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import CartWidget from './CartWidget';
+/* import { NavLink } from 'react-router-dom' */
 import logo from '../frangue.png'
 
 //children==>parámetro desestructurado
@@ -27,6 +28,7 @@ function NavBar(props) {
               <Nav.Link href="#pricing">Pricing</Nav.Link>
               <NavDropdown title="Categorias" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/category/hogar">Hogar</NavDropdown.Item>
+                {/* <NavDropdown.Item as={NavLink} to="/category/hogar2">Hogar2</NavDropdown.Item> */}
                 <NavDropdown.Item href="/category/industria">
                   Industria
                 </NavDropdown.Item>
