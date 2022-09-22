@@ -7,7 +7,6 @@ import Nav from 'react-bootstrap/Nav'
 import { CartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 
-
 const ItemDetail = ({ data }) => {
 
   const { addToCart, removeItem }=useContext(CartContext);
