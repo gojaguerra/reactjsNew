@@ -46,7 +46,7 @@ const ItemDetail = ({ data }) => {
             <Button className='btn-warning' onClick={handleClick}>Terminar Comprar</Button>        
           </Link>  
         }
-        <Button className='btn-warning' onClick={handleBorrar}>Borrar</Button>
+        {/* <Button className='btn-warning' onClick={handleBorrar}>Borrar</Button> */}
         <Link to={"/"}>Volver</Link>
       </Card.Body>
       </Card>

@@ -9,8 +9,6 @@ import Cart from './components/Cart/Cart';
 
 function App() {
 
-  /* const [items, setItems] = useState(0); */
-  
   return (
     <CartProvider>
       <BrowserRouter>
@@ -25,7 +23,6 @@ function App() {
               <Route path="cart" element={<Cart />} />
               <Route path="category/:categoryName" element={<ItemListContainer />} />
             </Routes>
-            {/* <ItemDetailContainer Saludo="(Detalle) - Bienvenidos a la Tienda Virtual" /> */}
           </div>
         </div>
       </BrowserRouter>
