@@ -1,6 +1,5 @@
-import React, { useState, useContext } from 'react'
-import { Button } from 'react-bootstrap'
-/* import Form from 'react-bootstrap/Form'; */
+import React, { useState, useContext } from 'react';
+import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import ItemCount from "../ItemCount/ItemCount";
 import Nav from 'react-bootstrap/Nav'
@@ -13,6 +12,9 @@ const ItemDetail = ({ data }) => {
   const [estadoCarrito, setEstadoCarrito] = useState(false);
   const initial=1;
   const [initialItem, setInitialItem] = useState(initial);
+
+  const { cart } = useContext(CartContext);
+  const quantityCart = cart.reduce((acumulador, cantidad) => acumulador + cantidad.quantity, 0);
     
   const handleOnAdd = (cantidad)=>{
     setEstadoCarrito(addToCart(data, cantidad));
@@ -26,7 +28,7 @@ const ItemDetail = ({ data }) => {
 
   const handleBorrar = ()=>{
     removeItem(data.id);
-    /* console.log(cart); */
+    
   };
 
   return (
@@ -37,14 +39,24 @@ const ItemDetail = ({ data }) => {
         <Card.Title>{data.name}</Card.Title>
         <Card.Text>{data.description}</Card.Text>
         <Card.Text>Precio: ${data.price}</Card.Text>
-        {estadoCarrito===false?
+        
+        <ItemCount stock={data.stock} initial={1} onAdd={handleOnAdd} setInitialItem={setInitialItem} initialItem={initialItem}/>
+        {quantityCart>0 && 
+          <Link
+            to={'/cart'} >
+            <Button className='btn-warning' onClick={handleClick}>Terminar Comprar</Button>        
+          </Link>  
+        }
+
+{/*         {estadoCarrito===false?
           <ItemCount stock={data.stock} initial={1} onAdd={handleOnAdd} setInitialItem={setInitialItem} initialItem={initialItem}/>
         :
           <Link
             to={'/cart'} >
             <Button className='btn-warning' onClick={handleClick}>Terminar Comprar</Button>        
           </Link>  
-        }
+        } */}
+
         {/* <Button className='btn-warning' onClick={handleBorrar}>Borrar</Button> */}
         <Link to={"/"}>Volver</Link>
       </Card.Body>

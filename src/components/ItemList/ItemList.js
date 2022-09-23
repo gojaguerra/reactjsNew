@@ -15,7 +15,8 @@ const ItemList = ({products,categoria}) => {
             <Item data={item} 
           />
           </Link>
-          ))}
+          ))
+        }
     </>
   );
 };

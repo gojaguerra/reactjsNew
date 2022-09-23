@@ -17,13 +17,13 @@ const Item = ({data}) => {
   
   return (
     <>
-    <Card border="primary" style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={`${data.image}`}  />
-      <Card.Body>
-        <Card.Title>{data.name}</Card.Title>
-        <Card.Text>{data.description}</Card.Text>
-        <Card.Text>Precio: ${data.price}</Card.Text>
-      </Card.Body>
+      <Card border="primary" style={{ width: '18rem' }}>
+        <Card.Img variant="top" src={`${data.image}`}  />
+        <Card.Body>
+          <Card.Title>{data.name}</Card.Title>
+          <Card.Text>{data.description}</Card.Text>
+          <Card.Text>Precio: ${data.price}</Card.Text>
+        </Card.Body>
       </Card>
     </>
   )
