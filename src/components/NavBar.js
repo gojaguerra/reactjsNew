@@ -12,29 +12,29 @@ function NavBar(props) {
     return (<>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="/">
+          <Navbar.Brand as={Link} to={"/"}>
             <img src={logo}
                 className="d-inline-block align-top App-logo"
                 alt="React Bootstrap logo1"
             />
           </Navbar.Brand>
-          <Navbar.Brand href="/">Bettert Call Frangue</Navbar.Brand>
+          <Navbar.Brand as={Link} to={"/"}>Bettert Call Frangue</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
+              <Nav.Link as={Link} to={"/"}>Features</Nav.Link>
+              <Nav.Link as={Link} to={"/"}>Pricing</Nav.Link>
               <NavDropdown title="Categorias" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="/category/hogar">Hogar</NavDropdown.Item>
-                {/* <NavDropdown.Item as={NavLink} to={"/category/hogar"}>Hogar2</NavDropdown.Item> */}
-                <NavDropdown.Item href="/category/industria">Industria</NavDropdown.Item>
-                {/* <NavDropdown.Item as={Link} to={"/category/industria"}>Industria2</NavDropdown.Item> */}
-
-                <NavDropdown.Item href="/category/otras">Otras Categorias</NavDropdown.Item>
-                <NavDropdown.Divider />
+                {/* <NavDropdown.Item href="/category/hogar">Hogar</NavDropdown.Item> */}
+                <NavDropdown.Item as={Link} to={"/category/hogar"}>Hogar</NavDropdown.Item>
+                {/* <NavDropdown.Item href="/category/industria">Industria</NavDropdown.Item> */}
+                <NavDropdown.Item as={Link} to={"/category/industria"}>Industria</NavDropdown.Item>
+                {/* <NavDropdown.Item href="/category/otras">Otras Categorias</NavDropdown.Item> */}
+                <NavDropdown.Item as={Link} to={"/category/otras"}>Otras Categorias</NavDropdown.Item>
+                {/* <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">
                   Separated link
-                </NavDropdown.Item>
+                </NavDropdown.Item> */}
               </NavDropdown>
             </Nav>
 {/*             <Nav>
