@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import ItemCount from "../ItemCount/ItemCount";
-import Nav from 'react-bootstrap/Nav'
 import { CartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 

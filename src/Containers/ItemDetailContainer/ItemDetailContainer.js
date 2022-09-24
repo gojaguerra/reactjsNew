@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom';
-import { Data } from '../../Data/data';
+/* import { Data } from '../../Data/data'; */
 import Spinner from 'react-bootstrap/Spinner';
 import { getFirestore, doc, getDoc } from "firebase/firestore"
 
@@ -18,10 +18,7 @@ const ItemDetailContainer = () => {
 
     await getDoc(queryDoc)
     .then((res) => {
-      /* console.log(res.id);
-      console.log(res.data()); */
-     /*  setData(res.data()); */
-
+  
       setData({id: res.id, ...res.data()});
 
     })
