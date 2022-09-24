@@ -20,9 +20,17 @@ console.log(totalCart);
             (
                 <>
                   <h3>TOTAL: ${totalCart}</h3>
+                  <div className="modal-carrito">
                     {cart.map((item) => (
-                        <div key={item.id}>
-                            <Card border="primary" style={{ width: '18rem' }}>
+                        <div key={item.id} className="productoEnCarrito">
+                            <img src={`${item.image}`} style={{ width: '7rem' }}></img>
+                            <p>{item.name}</p>
+                            <p>{item.quantity}</p>
+                            <p>${item.price}</p>
+                            {/* <button onClick={() => removeItem(item.id)}>Eliminar</button> */}
+                            <button class="boton-eliminar" onClick={() => removeItem(item.id)}><i class="fa-solid fa-trash-can"></i></button>
+
+                           {/*  <Card border="primary" style={{ width: '18rem' }}>
                             <Card.Img variant="top" src={`${item.image}`}  />
                             <Card.Body>
                             <Card.Title>{item.name}</Card.Title>
@@ -30,9 +38,10 @@ console.log(totalCart);
                             <Card.Text>Precio: ${item.price}</Card.Text>
                             <button onClick={() => removeItem(item.id)}>Eliminar</button>
                             </Card.Body>
-                            </Card>
+                            </Card> */}
                         </div>
                     ))}
+                    </div>
                 </>
             )
             }
