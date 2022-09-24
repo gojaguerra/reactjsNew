@@ -5,30 +5,46 @@ import { useParams } from 'react-router-dom';
 import ItemList from '../../components/ItemList/ItemList'
 import { Data } from '../../Data/data';
 import Spinner from 'react-bootstrap/Spinner';
-import { getFirestore, getDocs, collection, query } from "firebase/firestore"
+import { getFirestore, getDocs, collection, query, where } from "firebase/firestore"
 
 const ItemListContainer = () => {
     
-    const[data,setData]=useState([]);
-    const[loading,setLoading]=useState(true);
+    const[data, setData]=useState([]);
+    const[loading, setLoading]=useState(true);
     const { categoryName } = useParams();
 
-    // console.log("category",categoryName);
-
-    useEffect(()=>{
-        getFetch
-        .then((response)=>{
-          if(categoryName){
-            const dataFiltrada = Data.filter((item)=> item.category===categoryName);
-            setData(dataFiltrada);
-          }else{
-            setData(response);
-          }
+    const getProducts = () => {
+      const db = getFirestore();
+      const querySnapshot = collection(db, 'items');
+      
+      if(categoryName){
+        const queryFiltered = query(querySnapshot, where('category', '==', categoryName));
+        getDocs(queryFiltered)
+        .then(response => {
+          const data = response.docs.map((doc) => {
+            return { id: doc.id, ...doc.data()};
+          });
+          setData(data);
         })
         .catch(error=>console.log(error))
         .finally(()=>setLoading(false))
-      },[])
 
+      } else {
+        getDocs(querySnapshot)
+        .then(response => {
+          const data = response.docs.map((doc) => {
+            return { id: doc.id, ...doc.data()};
+          });
+          setData(data);  
+        })
+        .catch(error=>console.log(error))
+        .finally(()=>setLoading(false))
+      }
+    }
+
+    useEffect(() => {
+      getProducts();
+    }, [categoryName]);
 
   return (
   <>
