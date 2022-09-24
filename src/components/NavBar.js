@@ -1,4 +1,6 @@
-import React from 'react'
+/* import React from 'react' */
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
@@ -7,9 +9,12 @@ import CartWidget from './CartWidget';
 import { Link, NavLink } from 'react-router-dom'
 import logo from '../frangue.png'
 
-//children==>parámetro desestructurado
+
 function NavBar(props) {
-    return (<>
+    const { cart } = useContext(CartContext);
+    const quantityCart = cart.reduce((acumulador, cantidad) => acumulador + cantidad.quantity, 0);
+
+  return (<>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to={"/"}>
@@ -44,7 +49,7 @@ function NavBar(props) {
                 Dank memes
               </Nav.Link>
             </Nav> */}
-            <CartWidget />
+            { (quantityCart>0) && <CartWidget /> }
           </Navbar.Collapse>
         </Container>
       </Navbar>
