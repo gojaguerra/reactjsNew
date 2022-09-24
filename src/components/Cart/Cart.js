@@ -25,8 +25,9 @@ console.log(totalCart);
                         <div key={item.id} className="productoEnCarrito">
                             <img src={`${item.image}`} style={{ width: '7rem' }}></img>
                             <p>{item.name}</p>
-                            <p>{item.quantity}</p>
+                            <p>{item.quantity} unid.</p>
                             <p>${item.price}</p>
+                            <p>${item.price*item.quantity}</p>
                             {/* <button onClick={() => removeItem(item.id)}>Eliminar</button> */}
                             <button class="boton-eliminar" onClick={() => removeItem(item.id)}><i class="fa-solid fa-trash-can"></i></button>
 
