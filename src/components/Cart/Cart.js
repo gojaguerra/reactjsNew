@@ -10,10 +10,10 @@ const Cart = () => {
 console.log(totalCart);
     return (
         <div>
-          <Link
-            to={'/'} >
-            <Button className='btn-warning'>Volver</Button>        
-          </Link> 
+            <Link
+                to={'/'} >
+                <Button className='btn-warning'>Volver</Button>        
+            </Link>
             <h1>Su carrito de compras</h1>
             { cart.length===0 ? (<h2>NO HAY PRODUCTOS</h2>) 
             : 
