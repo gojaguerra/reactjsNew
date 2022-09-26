@@ -34,6 +34,7 @@ console.log("ItemDetail:", data);
 
   return (
     <>
+    <Link to={"/"}>Volver</Link>
     <Card border="primary" style={{ width: '18rem' }}>
       <Card.Img variant="top" src={`${data.image}`}  />
       <Card.Body>
@@ -59,7 +60,7 @@ console.log("ItemDetail:", data);
         } */}
 
         {/* <Button className='btn-warning' onClick={handleBorrar}>Borrar</Button> */}
-        <Link to={"/"}>Volver</Link>
+       {/*  <Link to={"/"}>Volver</Link> */}
       </Card.Body>
       </Card>
     </>
