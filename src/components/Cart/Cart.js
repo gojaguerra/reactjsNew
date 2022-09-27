@@ -28,18 +28,7 @@ console.log(totalCart);
                             <p>{item.quantity} unid.</p>
                             <p>${item.price}</p>
                             <p>${item.price*item.quantity}</p>
-                            {/* <button onClick={() => removeItem(item.id)}>Eliminar</button> */}
                             <button class="boton-eliminar" onClick={() => removeItem(item.id)}><i class="fa-solid fa-trash-can"></i></button>
-
-                           {/*  <Card border="primary" style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={`${item.image}`}  />
-                            <Card.Body>
-                            <Card.Title>{item.name}</Card.Title>
-                            <Card.Text>Cantidad: {item.quantity}</Card.Text>
-                            <Card.Text>Precio: ${item.price}</Card.Text>
-                            <button onClick={() => removeItem(item.id)}>Eliminar</button>
-                            </Card.Body>
-                            </Card> */}
                         </div>
                     ))}
                     </div>

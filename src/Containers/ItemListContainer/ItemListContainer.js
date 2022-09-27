@@ -28,7 +28,6 @@ const ItemListContainer = () => {
         })
         .catch(error=>console.log(error))
         .finally(()=>setLoading(false))
-
       } else {
         getDocs(querySnapshot)
         .then(response => {
