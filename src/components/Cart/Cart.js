@@ -25,7 +25,8 @@ const Cart = () => {
         const query = collection(db, 'orders');
         addDoc(query, orders)
         .then((response) => {
-            alert("Gracias por tu compra!")
+            /* console.log(response.id); */
+            alert("Gracias por tu compra! \nSu numero de orden es: "+response.id)
             clear();
             })
         .catch(() => alert("Tu compra no pudo realizarse!"))
@@ -47,7 +48,7 @@ const Cart = () => {
                   <div className="modal-carrito">
                     {cart.map((item) => (
                         <div key={item.id} className="productoEnCarrito">
-                            <img src={`${item.image}`} style={{ width: '7rem' }}></img>
+                            <img src={`${item.image}`} style={{ width: '7rem' }} alt="imagen de producto"></img>
                             <p>{item.name}</p>
                             <p>{item.quantity} unid.</p>
                             <p>${item.price}</p>

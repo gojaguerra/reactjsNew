@@ -1,9 +1,9 @@
 import React from 'react'
-import getFetch from '../../Data/data'
+/* import getFetch from '../../Data/data' */
 import { useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemList from '../../components/ItemList/ItemList'
-import { Data } from '../../Data/data';
+/* import { Data } from '../../Data/data'; */
 import Spinner from 'react-bootstrap/Spinner';
 import { getFirestore, getDocs, collection, query, where } from "firebase/firestore"
 

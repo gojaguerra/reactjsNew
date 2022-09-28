@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ data }) => {
 
-  const { addToCart, removeItem }=useContext(CartContext);
+  const { addToCart }=useContext(CartContext);
   const [estadoCarrito, setEstadoCarrito] = useState(false);
   const initial=1;
   const [initialItem, setInitialItem] = useState(initial);
