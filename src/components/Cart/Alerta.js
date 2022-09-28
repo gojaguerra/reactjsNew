@@ -4,32 +4,36 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Toast from 'react-bootstrap/Toast';
 
-function Alerta(mensaje) {
+function Alerta(props) {
   const [showA, setShowA] = useState(true);
-
-  const toggleShowA = () => setShowA(!showA);
-
+  
+  const toggleShowA = () => {
+    setShowA(!showA);
+    
+  }
+  
+/* console.log(props); */
   useEffect(() => {
-    setShowA(!showA)
+    setShowA(true)
   }, []);
 
   return (
     <Row>
       <Col md={6} className="mb-2">
-        <Button onClick={toggleShowA} className="mb-2">
+{/*         <Button onClick={toggleShowA} className="mb-2">
           Toggle Toast <strong>with</strong> Animation
-        </Button>
+        </Button> */}
         <Toast show={showA} onClose={toggleShowA}>
           <Toast.Header>
             <img
-              src="holder.js/20x20?text=%20"
+              src="holder.js/30x30?text=%20"
               className="rounded me-2"
               alt=""
             />
-            <strong className="me-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
+            <strong className="me-auto">Tienda Frangue</strong>
+            <small>nueva orden de compra!</small>
           </Toast.Header>
-          <Toast.Body>{mensaje}</Toast.Body>
+          <Toast.Body>{props.mensaje}</Toast.Body>
         </Toast>
       </Col>
     </Row>

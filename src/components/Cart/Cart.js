@@ -1,14 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 /* import Card from 'react-bootstrap/Card'; */
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import moment from "moment";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
+import Alerta from "../Cart/Alerta"
 
 const Cart = () => {
     const { cart, removeItem, clear } = useContext(CartContext);
     const totalCart = cart.reduce((acumulador, items) => acumulador + (items.quantity*items.price), 0);
+    const [idOrder, setIdOrder] = useState(false);
 
     const createOrder = () => {
         const db = getFirestore();
@@ -26,6 +28,7 @@ const Cart = () => {
         addDoc(query, orders)
         .then((response) => {
             /* console.log(response.id); */
+            setIdOrder(response.id);
             alert("Gracias por tu compra! \nSu numero de orden es: "+response.id)
             clear();
             })
@@ -60,6 +63,7 @@ const Cart = () => {
                 </>
             )
             }
+            {/* { (idOrder) && <Alerta mensaje={`Gracias por su compra. Su id es ${idOrder}`} /> } */}
         </div>
     )
 }
