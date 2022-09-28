@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    console.log(cart);
+    /* console.log(cart); */
   }, [cart]);
 
   // AGREGA AL CARRITO VERIFICANDO NO EXISTA

@@ -1,13 +1,36 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import Card from 'react-bootstrap/Card';
+/* import Card from 'react-bootstrap/Card'; */
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import moment from "moment";
+import { collection, addDoc, getFirestore } from "firebase/firestore";
 
 const Cart = () => {
-    const { cart, removeItem } = useContext(CartContext);
+    const { cart, removeItem, clear } = useContext(CartContext);
     const totalCart = cart.reduce((acumulador, items) => acumulador + (items.quantity*items.price), 0);
-console.log(totalCart);
+
+    const createOrder = () => {
+        const db = getFirestore();
+        const orders = {
+            buyer: {
+                name: "Jose",
+                phone: "2235065737",
+                email: "gojaguerra@gmail.com"
+            },
+            items: cart,
+            total: totalCart,
+            date: moment().format(),
+        };
+        const query = collection(db, 'orders');
+        addDoc(query, orders)
+        .then((response) => {
+            alert("Gracias por tu compra!")
+            clear();
+            })
+        .catch(() => alert("Tu compra no pudo realizarse!"))
+    };
+
     return (
         <div>
             <Link
@@ -20,6 +43,7 @@ console.log(totalCart);
             (
                 <>
                   <h3>TOTAL: ${totalCart}</h3>
+                  <Button onClick={createOrder}>Crear Orden</Button>
                   <div className="modal-carrito">
                     {cart.map((item) => (
                         <div key={item.id} className="productoEnCarrito">
