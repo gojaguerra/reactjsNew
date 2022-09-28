@@ -25,10 +25,10 @@ const ItemDetail = ({ data }) => {
 
   };
 
-  const handleBorrar = ()=>{
+/*   const handleBorrar = ()=>{
     removeItem(data.id);
     
-  };
+  }; */
 
   return (
     <>
@@ -47,18 +47,6 @@ const ItemDetail = ({ data }) => {
             <Button className='btn-warning' onClick={handleClick}>Terminar Comprar</Button>        
           </Link>  
         }
-
-{/*         {estadoCarrito===false?
-          <ItemCount stock={data.stock} initial={1} onAdd={handleOnAdd} setInitialItem={setInitialItem} initialItem={initialItem}/>
-        :
-          <Link
-            to={'/cart'} >
-            <Button className='btn-warning' onClick={handleClick}>Terminar Comprar</Button>        
-          </Link>  
-        } */}
-
-        {/* <Button className='btn-warning' onClick={handleBorrar}>Borrar</Button> */}
-       {/*  <Link to={"/"}>Volver</Link> */}
       </Card.Body>
       </Card>
     </>

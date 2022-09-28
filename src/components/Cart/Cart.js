@@ -52,7 +52,7 @@ const Cart = () => {
                             <p>{item.quantity} unid.</p>
                             <p>${item.price}</p>
                             <p>${item.price*item.quantity}</p>
-                            <button class="boton-eliminar" onClick={() => removeItem(item.id)}><i class="fa-solid fa-trash-can"></i></button>
+                            <button className="boton-eliminar" onClick={() => removeItem(item.id)}><i className="fa-solid fa-trash-can"></i></button>
                         </div>
                     ))}
                     </div>
