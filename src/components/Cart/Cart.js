@@ -5,14 +5,17 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import moment from "moment";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
+import Spinner from 'react-bootstrap/Spinner';
 import Alerta from "../Cart/Alerta"
 
 const Cart = () => {
     const { cart, removeItem, clear } = useContext(CartContext);
     const totalCart = cart.reduce((acumulador, items) => acumulador + (items.quantity*items.price), 0);
     const [idOrder, setIdOrder] = useState(false);
+    const [updateOrder, setUpdateOrder] = useState(false);
 
     const createOrder = () => {
+        setUpdateOrder(true);
         const db = getFirestore();
         const orders = {
             buyer: {
@@ -27,12 +30,14 @@ const Cart = () => {
         const query = collection(db, 'orders');
         addDoc(query, orders)
         .then((response) => {
-            /* console.log(response.id); */
             setIdOrder(response.id);
-            alert("Gracias por tu compra! \nSu numero de orden es: "+response.id)
+            // alert("Gracias por tu compra! \nSu numero de orden es: "+response.id)
             clear();
             })
         .catch(() => alert("Tu compra no pudo realizarse!"))
+        .finally(()=>{
+            setUpdateOrder(false);
+        })
     };
 
     return (
@@ -63,7 +68,14 @@ const Cart = () => {
                 </>
             )
             }
-            {/* { (idOrder) && <Alerta mensaje={`Gracias por su compra. Su id es ${idOrder}`} /> } */}
+            
+            { (updateOrder) && 
+            <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </Spinner> 
+            }
+
+            { (idOrder) && <Alerta mensaje={`Gracias por su compra. Su id de pedido es ${idOrder}`} /> }
         </div>
     )
 }

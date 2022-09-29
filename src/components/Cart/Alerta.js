@@ -1,32 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import Toast from 'react-bootstrap/Toast';
+import ToastContainer from 'react-bootstrap/ToastContainer';
+import { useNavigate } from "react-router-dom";
+
 
 function Alerta(props) {
   const [showA, setShowA] = useState(true);
   
+  let navigate = useNavigate();
   const toggleShowA = () => {
     setShowA(!showA);
+    navigate("/", { replace: true });
     
   }
   
-/* console.log(props); */
   useEffect(() => {
     setShowA(true)
   }, []);
 
   return (
-    <Row>
-      <Col md={6} className="mb-2">
-{/*         <Button onClick={toggleShowA} className="mb-2">
-          Toggle Toast <strong>with</strong> Animation
-        </Button> */}
+      <ToastContainer className="p-3" position="middle-center">
         <Toast show={showA} onClose={toggleShowA}>
           <Toast.Header>
             <img
-              src="holder.js/30x30?text=%20"
+              src="holder.js/20x20?text=%20"
               className="rounded me-2"
               alt=""
             />
@@ -35,8 +32,7 @@ function Alerta(props) {
           </Toast.Header>
           <Toast.Body>{props.mensaje}</Toast.Body>
         </Toast>
-      </Col>
-    </Row>
+      </ToastContainer>
   );
 }
 
