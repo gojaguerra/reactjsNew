@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
-/* import Card from 'react-bootstrap/Card'; */
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import moment from "moment";
@@ -76,6 +75,7 @@ const Cart = () => {
             }
 
             { (idOrder) && <Alerta mensaje={`Gracias por su compra. Su id de pedido es ${idOrder}`} /> }
+            
         </div>
     )
 }
