@@ -1,4 +1,4 @@
-# Tienda Frangue - Proyecto para curso Reacy de Coderhouse
+# Tienda Frangue - Proyecto para curso en Coderhouse
 
 Es un proyecto creado para el curso de React Js en CoderHouse.\
 Es un carrito de compras con filtros por categorias, almacenamiento en Firebase.
