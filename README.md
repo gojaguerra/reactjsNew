@@ -1,8 +1,16 @@
-# Proyecto para curso de Coderhouse
+# Tienda Frangue - Proyecto para curso de Coderhouse
 
-## Paquetes
+Es un proyecto creado para el curso de REACT en CoderHouse.
+Es un carrito de compras con filtros por categorias.
 
-AQUI LOS PAQUETES
+## Dependencias
+
+React Router: https://v5.reactrouter.com/web/guides/quick-start
+Bootstrap: https://react-bootstrap.github.io/
+Firebase: https://firebase.google.com/
+Moment: https://momentjs.com/
+
+
 
 # Getting Started with Create React App
 
