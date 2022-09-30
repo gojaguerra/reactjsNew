@@ -5,14 +5,14 @@ Es un carrito de compras con filtros por categorias.
 
 ## Despiegue en Vercel
 
-https://reactjs-new.vercel.app/ \
+https://reactjs-new.vercel.app/ 
 
 ## Dependencias
 
 React Router: https://v5.reactrouter.com/ \
 Bootstrap: https://react-bootstrap.github.io/ \
 Firebase: https://firebase.google.com/ \
-Moment: https://momentjs.com/ \
+Moment: https://momentjs.com/ 
 
 
 # Getting Started with Create React App
