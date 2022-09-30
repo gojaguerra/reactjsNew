@@ -1,7 +1,12 @@
-# Tienda Frangue - Proyecto para curso de Coderhouse
+# Tienda Frangue - Proyecto para curso Reacy de Coderhouse
 
-Es un proyecto creado para el curso de REACT en CoderHouse.\
-Es un carrito de compras con filtros por categorias.
+Es un proyecto creado para el curso de React Js en CoderHouse.\
+Es un carrito de compras con filtros por categorias, almacenamiento en Firebase.
+
+
+## Autor
+
+José Guerra
 
 ## Despiegue en Vercel
 
@@ -9,10 +14,10 @@ https://reactjs-new.vercel.app/
 
 ## Dependencias
 
-React Router: https://v5.reactrouter.com/ \
-Bootstrap: https://react-bootstrap.github.io/ \
-Firebase: https://firebase.google.com/ \
-Moment: https://momentjs.com/ 
+[React Router](https://v5.reactrouter.com/) \
+[Bootstrap](https://react-bootstrap.github.io/) \
+[Firebase](https://firebase.google.com/) \
+[Moment](https://momentjs.com/) 
 
 
 # Getting Started with Create React App
