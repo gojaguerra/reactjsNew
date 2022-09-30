@@ -5,10 +5,10 @@ Es un carrito de compras con filtros por categorias.
 
 ## Dependencias
 
-React Router: https://v5.reactrouter.com/\
-Bootstrap: https://react-bootstrap.github.io/\
-Firebase: https://firebase.google.com/\
-Moment: https://momentjs.com/\
+React Router: https://v5.reactrouter.com/ \
+Bootstrap: https://react-bootstrap.github.io/ \
+Firebase: https://firebase.google.com/ \
+Moment: https://momentjs.com/ \
 
 
 
