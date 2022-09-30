@@ -8,7 +8,7 @@ Es un carrito de compras con filtros por categorias, almacenamiento en Firebase.
 
 José Guerra
 
-## Despiegue en Vercel
+## Despliegue en Vercel
 
 https://reactjs-new.vercel.app/ 
 
