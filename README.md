@@ -1,14 +1,14 @@
 # Tienda Frangue - Proyecto para curso de Coderhouse
 
-Es un proyecto creado para el curso de REACT en CoderHouse.
+Es un proyecto creado para el curso de REACT en CoderHouse.\
 Es un carrito de compras con filtros por categorias.
 
 ## Dependencias
 
-React Router: https://v5.reactrouter.com/web/guides/quick-start
-Bootstrap: https://react-bootstrap.github.io/
-Firebase: https://firebase.google.com/
-Moment: https://momentjs.com/
+React Router: https://v5.reactrouter.com/\
+Bootstrap: https://react-bootstrap.github.io/\
+Firebase: https://firebase.google.com/\
+Moment: https://momentjs.com/\
 
 
 
