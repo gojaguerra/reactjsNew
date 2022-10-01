@@ -24,7 +24,7 @@ const Cart = () => {
             },
             items: cart,
             total: totalCart,
-            date: moment().format(),
+            date: moment().format('DD/MM/YYYY, h:mm:ss a'),
         };
         const query = collection(db, 'orders');
         addDoc(query, orders)
@@ -38,6 +38,22 @@ const Cart = () => {
             setUpdateOrder(false);
         })
     };
+
+/*     const updateStockItems = () => {
+        cart.forEach((element) => {
+            const queryUpdate = doc(db, 'items', element.id );
+            updateDoc(queryUpdate, {
+                stock: element.stock - element.quantity,})
+            .then(() => {
+                if (cart[cart.length -1].id === element.id) {
+                    clear();
+                    navigate('/');
+                }
+                console.log('Stock Actualizado');
+            })
+            .catch(() => {console.log('Error al Actualizar el Stock');})
+            });
+    };  */
 
     return (
         <div>
