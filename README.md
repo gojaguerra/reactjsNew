@@ -1,7 +1,10 @@
 # Tienda Frangue - Proyecto para curso en Coderhouse
 
 Es un proyecto creado para el curso de React Js en CoderHouse.\
-Es un carrito de compras con filtros por categorias, almacenamiento en Firebase.
+Es un carrito de compras con filtros por categorias, almacenamiento en Firebase.\
+Se utiliza el servicio de Firestore para almacenar los datos de los productos como los de las ordenes.\
+Al agregar al carrito se verifica si el producto existe. Si no existe se agrega y si existe se actualiza la cantidad.\
+Al finalizar la compra se guarda la orden en Firestore, descontamos de stock y mostramos una nueva pagina con el detalle de la orden generada.
 
 
 ## Autor

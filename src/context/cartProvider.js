@@ -10,46 +10,22 @@ export const CartProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    console.log("useefect:",cart);
+    /* console.log("useefect:", cart); */
   }, [cart]);
 
-  // AGREGA AL CARRITO VERIFICANDO NO EXISTA
+  // AGREGA AL CARRITO 
+  // SI YA EXISTE EN CARRITO LO ADICIONA CAMBIANDO LA CANTIDAD
   const addToCart = (item, quantity) => {
     if (isInCart(item.id)) {
-      alert("el producto esta en el carrito");
-
-      const prodId = cart.find(x=>x.id==item.id);
-      console.log("prodid:",prodId);
-      console.log("id:",prodId.id);
-      console.log("uno:",cart);
-      if(prodId){
-        const newQuantity = prodId.quantity+quantity;
-
-
-        /* const productCart = cart.filter(enCarrito => enCarrito.id !== prodId.id); */
-
-       /*  setCart(cart.map(fruit => fruit.id === prodId.id ? quantity=newQuantity : fruit)); */
-
-        /* console.log("dos:",productCart); */
-        /* setCart(productCart, {...item, newQuantity}); */
-        /* setCart(productCart); */
-        console.log("cart 1: ",cart);
-       /*  console.log(newQuantity);
-        removeItem(prodId.id);
-        console.log("cart 1: ",cart);
-        setCart([...cart, { ...item, newQuantity }]);
-        console.log(cart);
-        const totalCart = cart.reduce((acumulador, items) => acumulador + (items.quantity*items.price), 0);
-        console.log(totalCart); */
+      const prodId = cart.find((x) => x.id === item.id);
+      if (prodId) {
+        const newQuantity = prodId.quantity + quantity;
+        const newCart = cart.filter((enCarrito) => enCarrito.id !== item.id);
+        setCart([...newCart, { ...item, quantity: newQuantity }]);
       }
-
-
       return true;
     } else {
       setCart([...cart, { ...item, quantity }]);
-      // alert(`Se agrego ${quantity} producto al carrito`);
-      // console.log(quantity);
-      // console.log(item);
       return true;
     }
   };
@@ -61,10 +37,8 @@ export const CartProvider = ({ children }) => {
 
   // BORRO UN ITEM (FILTRO TODOS EXCLUYENDO EL QUE BORRO)
   const removeItem = (itemId) => {
-    const productCart = cart.filter(enCarrito => enCarrito.id !== itemId);
-    setCart(productCart);
+    setCart(cart.filter((enCarrito) => enCarrito.id !== itemId));
   };
-
 
   return (
     <CartContext.Provider value={{ cart, addToCart, clear, removeItem }}>

@@ -1,17 +1,18 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import moment from "moment";
-import { collection, addDoc, getFirestore } from "firebase/firestore";
+import { collection, addDoc, getFirestore, doc, updateDoc } from "firebase/firestore";
 import Spinner from 'react-bootstrap/Spinner';
-import Alerta from "../Cart/Alerta"
+/* import Alerta from "../Cart/Alerta" */
 
 const Cart = () => {
     const { cart, removeItem, clear } = useContext(CartContext);
     const totalCart = cart.reduce((acumulador, items) => acumulador + (items.quantity*items.price), 0);
     const [idOrder, setIdOrder] = useState(false);
     const [updateOrder, setUpdateOrder] = useState(false);
+    const navigate = useNavigate();
 
     const createOrder = () => {
         setUpdateOrder(true);
@@ -31,29 +32,32 @@ const Cart = () => {
         .then((response) => {
             setIdOrder(response.id);
             // alert("Gracias por tu compra! \nSu numero de orden es: "+response.id)
-            clear();
+            /* clear(); */
+            updateStockItems(response.id);
+            /* navigate(`order/${response.id}`, { replace: true }); */
             })
         .catch(() => alert("Tu compra no pudo realizarse!"))
         .finally(()=>{
             setUpdateOrder(false);
         })
+
+        const updateStockItems = (orderId) => {
+            cart.forEach((element) => {
+                const queryUpdate = doc(db, 'items', element.id );
+                updateDoc(queryUpdate, {
+                    stock: element.stock - element.quantity,})
+                .then(() => {
+                    if (cart[cart.length -1].id === element.id) {
+                        navigate(`order/${orderId}`, { replace: true });
+                    }
+                    console.log('Stock Actualizado');
+                })
+                .catch(() => {console.log('Error al Actualizar el Stock');})
+                });
+        }; 
+
     };
 
-/*     const updateStockItems = () => {
-        cart.forEach((element) => {
-            const queryUpdate = doc(db, 'items', element.id );
-            updateDoc(queryUpdate, {
-                stock: element.stock - element.quantity,})
-            .then(() => {
-                if (cart[cart.length -1].id === element.id) {
-                    clear();
-                    navigate('/');
-                }
-                console.log('Stock Actualizado');
-            })
-            .catch(() => {console.log('Error al Actualizar el Stock');})
-            });
-    };  */
 
     return (
         <div>
@@ -90,7 +94,7 @@ const Cart = () => {
             </Spinner> 
             }
 
-            { (idOrder) && <Alerta mensaje={`Gracias por su compra. Su id de pedido es ${idOrder}`} /> }
+            {/* { (idOrder) && <Alerta mensaje={`Gracias por su compra. Su id de pedido es ${idOrder}`} /> } */}
             
         </div>
     )
