@@ -3,6 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 
+// MUESTRA LOS DETALLES DE LA COMPRA LUEGO DE GRABAR EL PEDIDO EN FIREBASE
+
 const CartFinal = () => {
   const { cart, clear } = useContext(CartContext);
   const [newOrder, setNewOrder] = useState([]);

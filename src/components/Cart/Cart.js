@@ -5,7 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import moment from "moment";
 import { collection, addDoc, getFirestore, doc, updateDoc } from "firebase/firestore";
 import Spinner from 'react-bootstrap/Spinner';
+import FormOrder from "./FormOrder";
 /* import Alerta from "../Cart/Alerta" */
+
+// MUESTRA EL CARRITO PARA PODER TERMINAR LA COMPRA
 
 const Cart = () => {
     const { cart, removeItem, clear } = useContext(CartContext);
@@ -27,20 +30,25 @@ const Cart = () => {
     })
 
     const createOrder = () => {
-        setUpdateOrder(true);
-        const query = collection(db, 'orders');
-        addDoc(query, order)
-        .then((response) => {
-            setIdOrder(response.id);
-            // alert("Gracias por tu compra! \nSu numero de orden es: "+response.id)
-            /* clear(); */
-            updateStockItems(response.id);
-            /* navigate(`order/${response.id}`, { replace: true }); */
+        if(order.buyer.email==="" || order.buyer.phone==="" || order.buyer.name===""){
+            alert("complete los datos")
+            return false
+        } else {
+            setUpdateOrder(true);
+            const query = collection(db, 'orders');
+            addDoc(query, order)
+            .then((response) => {
+                setIdOrder(response.id);
+                // alert("Gracias por tu compra! \nSu numero de orden es: "+response.id)
+                /* clear(); */
+                updateStockItems(response.id);
+                /* navigate(`order/${response.id}`, { replace: true }); */
+                })
+            .catch(() => alert("Tu compra no pudo realizarse!"))
+            .finally(()=>{
+                setUpdateOrder(false);
             })
-        .catch(() => alert("Tu compra no pudo realizarse!"))
-        .finally(()=>{
-            setUpdateOrder(false);
-        })
+        }
 
         const updateStockItems = (orderId) => {
             cart.forEach((element) => {
@@ -72,11 +80,10 @@ const Cart = () => {
             (
                 <>
                   <h3>TOTAL: ${totalCart}</h3>
-                  <Button onClick={createOrder}>Crear Orden</Button>
                     {/* <Link
                     to={'form'} >
                     <Button className='btn-warning'>KKKKKK</Button>        
-                    </Link> */}
+                </Link> */}
                   <div className="modal-carrito">
                     {cart.map((item) => (
                         <div key={item.id} className="productoEnCarrito">
@@ -89,6 +96,8 @@ const Cart = () => {
                         </div>
                     ))}
                     </div>
+                    <Button onClick={createOrder}>Crear Orden</Button>
+                    <FormOrder order={order} setOrder={setOrder} />
                 </>
             )
             }

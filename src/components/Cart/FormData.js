@@ -3,6 +3,7 @@ import { Button, Form, Modal } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { CartContext } from "../../context/CartContext";
 
+// ES UN MODAL Y NO LO ESTOY USANDO
 
 function FormData() {
   const navigate = useNavigate();
