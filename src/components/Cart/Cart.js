@@ -6,7 +6,7 @@ import moment from "moment";
 import { collection, addDoc, getFirestore, doc, updateDoc } from "firebase/firestore";
 import Spinner from 'react-bootstrap/Spinner';
 import FormOrder from "./FormOrder";
-/* import Alerta from "../Cart/Alerta" */
+import FormData from "./FormData";
 
 // MUESTRA EL CARRITO PARA PODER TERMINAR LA COMPRA
 
@@ -98,6 +98,7 @@ const Cart = () => {
                     </div>
                     <Button onClick={createOrder}>Crear Orden</Button>
                     <FormOrder order={order} setOrder={setOrder} />
+                    {/* <FormData order={order} setOrder={setOrder} /> */}
                 </>
             )
             }

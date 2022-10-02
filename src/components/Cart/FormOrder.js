@@ -43,4 +43,4 @@ const FormOrder = ({order, setOrder}) => {
   )
 }
 
-export default FormOrder
+export default FormOrder;

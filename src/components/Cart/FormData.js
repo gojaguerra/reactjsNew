@@ -1,14 +1,23 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { CartContext } from "../../context/CartContext";
 
 // ES UN MODAL Y NO LO ESTOY USANDO
-
-function FormData() {
+const FormData = ({order, setOrder}) => {
+  
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
-  const { setOrder } = useContext(CartContext);
+  
+  const handleInputChange = (e) => {
+    setOrder({
+        ...order,
+        buyer: {
+            ...order.buyer,
+            [e.target.name]:e.target.value,
+        },
+    });
+
+  };
 
   const handleClose = (() => {
     setShow(false);
@@ -24,10 +33,6 @@ function FormData() {
 
   return (
     <>
-{/*       <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button> */}
-
       <Modal show={show} onHide={handleClose}>
         
         <Modal.Header closeButton>
@@ -36,8 +41,8 @@ function FormData() {
             
             <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label value="order.buyer.email">Email address</Form.Label>
-                <Form.Control type="email" placeholder="ingresa tu email" />
+                <Form.Label>Email address</Form.Label>
+                <Form.Control name="email" type="email" placeholder="ingresa tu email" value={order.buyer.email} onChange={handleInputChange} />
                 <Form.Text className="text-muted">
                 Ingresa tu direccion de email para recibir los datos del envio.
                 </Form.Text>
@@ -45,13 +50,13 @@ function FormData() {
 
             <Form.Group className="mb-3" controlId="formNombre">
                 <Form.Label>Apellido y Nombre</Form.Label>
-                <Form.Control type="text" placeholder="ingresa tu apellido y nombre" />
+                <Form.Control name="name" type="text" placeholder="ingresa tu apellido y nombre" value={order.buyer.name} onChange={handleInputChange} />
             </Form.Group>
 
 
             <Form.Group className="mb-3" controlId="formTelefono">
                 <Form.Label>Telefono</Form.Label>
-                <Form.Control type="text" placeholder="ingresa tu número de movil" />
+                <Form.Control name="phone" type="text" placeholder="ingresa tu número de movil" value={order.buyer.phone} onChange={handleInputChange} />
             </Form.Group>
 
             {/* <Button variant="primary" type="submit">
