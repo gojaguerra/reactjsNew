@@ -1,43 +1,62 @@
-import React, { useState } from 'react';
-import {Form, Modal, Button} from 'react-bootstrap/Button';
+import React, { useState, useEffect, useContext } from 'react';
+import { Button, Form, Modal } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 import { CartContext } from "../../context/CartContext";
 
 
 function FormData() {
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
+  const { setOrder } = useContext(CartContext);
 
-  const handleClose = () => setShow(false);
+  const handleClose = (() => {
+    setShow(false);
+    navigate("/cart", { replace: true });
+  });
+
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    handleShow();
+  }, []);
+  
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+{/*       <Button variant="primary" onClick={handleShow}>
         Launch demo modal
-      </Button>
+      </Button> */}
 
       <Modal show={show} onHide={handleClose}>
+        
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Ingresa tus datos</Modal.Title>
         </Modal.Header>
+            
             <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Label value="order.buyer.email">Email address</Form.Label>
+                <Form.Control type="email" placeholder="ingresa tu email" />
                 <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
+                Ingresa tu direccion de email para recibir los datos del envio.
                 </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+            <Form.Group className="mb-3" controlId="formNombre">
+                <Form.Label>Apellido y Nombre</Form.Label>
+                <Form.Control type="text" placeholder="ingresa tu apellido y nombre" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
+
+
+            <Form.Group className="mb-3" controlId="formTelefono">
+                <Form.Label>Telefono</Form.Label>
+                <Form.Control type="text" placeholder="ingresa tu número de movil" />
             </Form.Group>
-            <Button variant="primary" type="submit">
+
+            {/* <Button variant="primary" type="submit">
                 Submit
-            </Button>
+            </Button> */}
+
         </Form>
 
 

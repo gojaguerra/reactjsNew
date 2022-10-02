@@ -13,22 +13,23 @@ const Cart = () => {
     const [idOrder, setIdOrder] = useState(false);
     const [updateOrder, setUpdateOrder] = useState(false);
     const navigate = useNavigate();
+    const db = getFirestore();
+
+    const [order, setOrder] = useState({
+        buyer: {
+            name: "Jose",
+            phone: "2235065737",
+            email: "gojaguerra@gmail.com"
+        },
+        items: cart,
+        total: cart.reduce((acumulador, items) => acumulador + (items.quantity*items.price), 0),
+        date: moment().format('DD/MM/YYYY, h:mm:ss a'),       
+    })
 
     const createOrder = () => {
         setUpdateOrder(true);
-        const db = getFirestore();
-        const orders = {
-            buyer: {
-                name: "Jose",
-                phone: "2235065737",
-                email: "gojaguerra@gmail.com"
-            },
-            items: cart,
-            total: totalCart,
-            date: moment().format('DD/MM/YYYY, h:mm:ss a'),
-        };
         const query = collection(db, 'orders');
-        addDoc(query, orders)
+        addDoc(query, order)
         .then((response) => {
             setIdOrder(response.id);
             // alert("Gracias por tu compra! \nSu numero de orden es: "+response.id)
@@ -72,6 +73,10 @@ const Cart = () => {
                 <>
                   <h3>TOTAL: ${totalCart}</h3>
                   <Button onClick={createOrder}>Crear Orden</Button>
+                    {/* <Link
+                    to={'form'} >
+                    <Button className='btn-warning'>KKKKKK</Button>        
+                    </Link> */}
                   <div className="modal-carrito">
                     {cart.map((item) => (
                         <div key={item.id} className="productoEnCarrito">
