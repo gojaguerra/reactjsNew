@@ -1,10 +1,10 @@
 # Tienda Frangue - Proyecto para curso en Coderhouse
 
-Es un proyecto creado para el curso de React Js en CoderHouse.\
-Es un carrito de compras con filtros por categorias, almacenamiento en Firebase.\
-Se utiliza el servicio de Firestore para almacenar los datos de los productos como los de las ordenes.\
-Al agregar al carrito se verifica si el producto existe. Si no existe se agrega y si existe se actualiza la cantidad.\
-Al finalizar la compra se guarda la orden en Firestore, descontamos de stock y mostramos una nueva pagina con el detalle de la orden generada.
+Es un proyecto que cree para el curso de React Js en CoderHouse.\
+Arme un carrito de compras de la Tienda Frangue donde se puede filtrar por categorias y se almacena en Firebase.\
+Utilizo el servicio de Firestore para almacenar los datos de los productos como los de las ordenes.\
+Al agregar al carrito verifico si no existe y se agrega, y si ya existe se actualiza la cantidad.\
+Al finalizar pido los datos de envio y contacto. Luego la compra se guarda en Firestore, descontamos de stock y mostramos una nueva pagina con el detalle de la orden generada.
 
 
 ## Autor
@@ -20,6 +20,7 @@ https://reactjs-new.vercel.app/
 [React Router](https://v5.reactrouter.com/) \
 [Bootstrap](https://react-bootstrap.github.io/) \
 [Firebase](https://firebase.google.com/) \
+[Sweet Alert 2](https://sweetalert2.github.io/) \
 [Moment](https://momentjs.com/) 
 
 

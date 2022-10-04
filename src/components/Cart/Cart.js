@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
@@ -17,12 +17,13 @@ const Cart = () => {
     const [updateOrder, setUpdateOrder] = useState(false);
     const navigate = useNavigate();
     const db = getFirestore();
+    const [showForm, setShowForm] = useState(false);
 
     const [order, setOrder] = useState({
         buyer: {
-            name: "Jose",
-            phone: "2235065737",
-            email: "gojaguerra@gmail.com"
+            name: "",
+            phone: "",
+            email: ""
         },
         items: cart,
         total: cart.reduce((acumulador, items) => acumulador + (items.quantity*items.price), 0),
@@ -31,7 +32,8 @@ const Cart = () => {
 
     const createOrder = () => {
         if(order.buyer.email==="" || order.buyer.phone==="" || order.buyer.name===""){
-            alert("complete los datos")
+            // alert("complete los datos")
+            setShowForm(true);
             return false
         } else {
             setUpdateOrder(true);
@@ -67,6 +69,14 @@ const Cart = () => {
 
     };
 
+    const handleShowForm = () => {
+        setShowForm(true);
+        // console.log("me,",showForm);
+    };
+
+    useEffect(() => {
+        // console.log("ue,",showForm);
+      }, [showForm]);
 
     return (
         <div>
@@ -74,16 +84,14 @@ const Cart = () => {
                 to={'/'} >
                 <Button className='btn-warning'>Volver</Button>        
             </Link>
+            { (!cart.length==0) && <Button onClick={createOrder}>Crear Orden</Button> }
+            { (!cart.length==0) && <Button className='btn-warning' onClick={handleShowForm}>Mis Datos</Button> }
             <h1>Su carrito de compras</h1>
             { cart.length===0 ? (<h2>NO HAY PRODUCTOS</h2>) 
             : 
             (
                 <>
                   <h3>TOTAL: ${totalCart}</h3>
-                    {/* <Link
-                    to={'form'} >
-                    <Button className='btn-warning'>KKKKKK</Button>        
-                </Link> */}
                   <div className="modal-carrito">
                     {cart.map((item) => (
                         <div key={item.id} className="productoEnCarrito">
@@ -96,9 +104,17 @@ const Cart = () => {
                         </div>
                     ))}
                     </div>
-                    <Button onClick={createOrder}>Crear Orden</Button>
-                    <FormOrder order={order} setOrder={setOrder} />
-                    {/* <FormData order={order} setOrder={setOrder} /> */}
+                    {/* <Button onClick={createOrder}>Crear Orden</Button>
+                    <Button className='btn-warning' onClick={handleShowForm}>Mis Datos</Button> */}
+                    <br></br>
+                    {/* <FormOrder order={order} setOrder={setOrder} /> */}
+                    
+                    {/* {showForm ? <FormData order={order} setOrder={setOrder} createOrder={createOrder} setShowForm={setShowForm} /> :
+                    <FormData order={order} setOrder={setOrder} createOrder={createOrder} setShowForm={setShowForm} /> } */}
+                    
+                    { (showForm) && <FormData order={order} setOrder={setOrder} createOrder={createOrder} setShowForm={setShowForm} /> }
+                    {/* {showForm && <FormOrder order={order} setOrder={setOrder} />} */}
+                    
                 </>
             )
             }

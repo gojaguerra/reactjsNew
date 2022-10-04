@@ -1,10 +1,24 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
 
-// ES UN MODAL Y NO LO ESTOY USANDO
-const FormData = ({order, setOrder}) => {
+// ES UN MODAL PARA PEDIR LOS DATOS DE ENVIO
+
+const FormData = ({order, setOrder, createOrder, setShowForm}) => {
   
+  const ToastIng = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   
@@ -20,20 +34,35 @@ const FormData = ({order, setOrder}) => {
   };
 
   const handleClose = (() => {
+    setShowForm(false);
     setShow(false);
     navigate("/cart", { replace: true });
+  });
+
+  const handleCloseOK = (() => {
+    setShowForm(false);
+    setShow(false);
+    if(order.buyer.email==="" || order.buyer.phone==="" || order.buyer.name===""){
+      ToastIng.fire({
+        icon: "error",
+        title: "Debe completar todos los campos!",
+      });
+    } else {
+      createOrder();
+    }
   });
 
   const handleShow = () => setShow(true);
 
   useEffect(() => {
+    /* setShowForm(false) */
     handleShow();
   }, []);
   
 
   return (
     <>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} >
         
         <Modal.Header closeButton>
           <Modal.Title>Ingresa tus datos</Modal.Title>
@@ -66,13 +95,13 @@ const FormData = ({order, setOrder}) => {
         </Form>
 
 
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        {/* <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body> */}
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cerrar
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
+          <Button variant="primary" onClick={handleCloseOK}>
+            Pedir
           </Button>
         </Modal.Footer>
       </Modal>
