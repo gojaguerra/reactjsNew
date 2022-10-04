@@ -68,34 +68,24 @@ const FormData = ({order, setOrder, createOrder, setShowForm}) => {
           <Modal.Title>Ingresa tus datos</Modal.Title>
         </Modal.Header>
             
-            <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control name="email" type="email" placeholder="ingresa tu email" value={order.buyer.email} onChange={handleInputChange} />
-                <Form.Text className="text-muted">
-                Ingresa tu direccion de email para recibir los datos del envio.
-                </Form.Text>
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formNombre">
-                <Form.Label>Apellido y Nombre</Form.Label>
-                <Form.Control name="name" type="text" placeholder="ingresa tu apellido y nombre" value={order.buyer.name} onChange={handleInputChange} />
-            </Form.Group>
-
-
-            <Form.Group className="mb-3" controlId="formTelefono">
-                <Form.Label>Telefono</Form.Label>
-                <Form.Control name="phone" type="text" placeholder="ingresa tu número de movil" value={order.buyer.phone} onChange={handleInputChange} />
-            </Form.Group>
-
-            {/* <Button variant="primary" type="submit">
-                Submit
-            </Button> */}
-
+        <Form className="modal-datos" >
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control name="email" type="email" placeholder="ingresa tu email" value={order.buyer.email} onChange={handleInputChange} />
+              <Form.Text className="text-muted">
+              Ingresa tu direccion de email para recibir los datos del envio.
+              </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formNombre">
+              <Form.Label>Apellido y Nombre</Form.Label>
+              <Form.Control name="name" type="text" placeholder="ingresa tu apellido y nombre" value={order.buyer.name} onChange={handleInputChange} />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formTelefono">
+              <Form.Label>Teléfono</Form.Label>
+              <Form.Control name="phone" type="text" placeholder="ingresa tu número de movil" value={order.buyer.phone} onChange={handleInputChange} />
+          </Form.Group>
         </Form>
 
-
-        {/* <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body> */}
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cerrar
@@ -104,6 +94,7 @@ const FormData = ({order, setOrder, createOrder, setShowForm}) => {
             Pedir
           </Button>
         </Modal.Footer>
+        
       </Modal>
     </>
   );

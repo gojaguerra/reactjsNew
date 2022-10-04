@@ -20,7 +20,7 @@ const FormOrder = ({order, setOrder}) => {
     <div>
         <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
+                <Form.Label>Email</Form.Label>
                 <Form.Control name="email" type="email" placeholder="ingresa tu email" value={order.buyer.email} onChange={handleInputChange} />
                 <Form.Text className="text-muted">
                 Ingresa tu direccion de email para recibir los datos del envio.
@@ -34,7 +34,7 @@ const FormOrder = ({order, setOrder}) => {
 
 
             <Form.Group className="mb-3" controlId="formTelefono">
-                <Form.Label>Telefono</Form.Label>
+                <Form.Label>Teléfono</Form.Label>
                 <Form.Control name="phone" type="text" placeholder="ingresa tu número de movil" value={order.buyer.phone} onChange={handleInputChange} />
             </Form.Group>
 

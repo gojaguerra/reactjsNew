@@ -154,6 +154,10 @@
   text-decoration: none;
 }
 
+.modal-datos {
+  padding: 10px;
+}
+
 .modal-carrito {
   width: 40rem;
   background-color: whitesmoke;
