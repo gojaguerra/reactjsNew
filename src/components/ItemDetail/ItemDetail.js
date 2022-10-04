@@ -21,14 +21,17 @@ const ItemDetail = ({ data }) => {
 
   return (
     <>
-    <Link to={"/"}>Volver</Link>
+    {/* <Link to={"/"}>Volver</Link> */}
+    <Link
+        to={'/'} >
+        <Button className='btn-warning'>Volver</Button>        
+     </Link>
     <Card border="primary" style={{ width: '18rem' }}>
       <Card.Img variant="top" src={`${data.image}`}  />
       <Card.Body>
         <Card.Title>{data.name}</Card.Title>
         <Card.Text>{data.description}</Card.Text>
         <Card.Text>Precio: ${data.price}</Card.Text>
-        
         <ItemCount stock={data.stock} initial={1} onAdd={handleOnAdd} setInitialItem={setInitialItem} initialItem={initialItem}/>
         {quantityCart>0 && 
           <Link
