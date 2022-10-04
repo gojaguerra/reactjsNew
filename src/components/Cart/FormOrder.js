@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form } from 'react-bootstrap';
 
-// FORMULARIO PARA LOS DATOS DE LA PERSONA QUE COMPRA
+// FORMULARIO PARA LOS DATOS DE LA PERSONA QUE COMPRA - NO LO ESTOY USANDO
 
 const FormOrder = ({order, setOrder}) => {
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { Button } from 'react-bootstrap';
+import { useParams, Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 
 // MUESTRA LOS DETALLES DE LA COMPRA LUEGO DE GRABAR EL PEDIDO EN FIREBASE
@@ -38,6 +39,10 @@ const CartFinal = () => {
           </div>
         ))}
       </div>
+      <Link
+                to={'/'} >
+                <Button className='btn-warning'>Volver</Button>        
+      </Link>
     </div>
   );
 };

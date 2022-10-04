@@ -5,15 +5,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import moment from "moment";
 import { collection, addDoc, getFirestore, doc, updateDoc } from "firebase/firestore";
 import Spinner from 'react-bootstrap/Spinner';
-import FormOrder from "./FormOrder";
 import FormData from "./FormData";
 
 // MUESTRA EL CARRITO PARA PODER TERMINAR LA COMPRA
 
 const Cart = () => {
-    const { cart, removeItem, clear } = useContext(CartContext);
+    const { cart, removeItem } = useContext(CartContext);
     const totalCart = cart.reduce((acumulador, items) => acumulador + (items.quantity*items.price), 0);
-    const [idOrder, setIdOrder] = useState(false);
+    /* const [idOrder, setIdOrder] = useState(false); */
     const [updateOrder, setUpdateOrder] = useState(false);
     const navigate = useNavigate();
     const db = getFirestore();
@@ -40,7 +39,7 @@ const Cart = () => {
             const query = collection(db, 'orders');
             addDoc(query, order)
             .then((response) => {
-                setIdOrder(response.id);
+                /* setIdOrder(response.id); */
                 // alert("Gracias por tu compra! \nSu numero de orden es: "+response.id)
                 /* clear(); */
                 updateStockItems(response.id);
@@ -71,11 +70,9 @@ const Cart = () => {
 
     const handleShowForm = () => {
         setShowForm(true);
-        // console.log("me,",showForm);
     };
 
     useEffect(() => {
-        // console.log("ue,",showForm);
       }, [showForm]);
 
     return (
@@ -84,8 +81,8 @@ const Cart = () => {
                 to={'/'} >
                 <Button className='btn-warning'>Volver</Button>        
             </Link>
-            { (!cart.length==0) && <Button onClick={createOrder}>Crear Orden</Button> }
-            { (!cart.length==0) && <Button className='btn-warning' onClick={handleShowForm}>Mis Datos</Button> }
+            { (cart.length!==0) && <Button onClick={createOrder}>Crear Orden</Button> }
+            { (cart.length!==0) && <Button className='btn-warning' onClick={handleShowForm}>Mis Datos</Button> }
             <h1>Su carrito de compras</h1>
             { cart.length===0 ? (<h2>NO HAY PRODUCTOS</h2>) 
             : 
@@ -104,16 +101,11 @@ const Cart = () => {
                         </div>
                     ))}
                     </div>
-                    {/* <Button onClick={createOrder}>Crear Orden</Button>
-                    <Button className='btn-warning' onClick={handleShowForm}>Mis Datos</Button> */}
                     <br></br>
-                    {/* <FormOrder order={order} setOrder={setOrder} /> */}
-                    
                     {/* {showForm ? <FormData order={order} setOrder={setOrder} createOrder={createOrder} setShowForm={setShowForm} /> :
                     <FormData order={order} setOrder={setOrder} createOrder={createOrder} setShowForm={setShowForm} /> } */}
                     
                     { (showForm) && <FormData order={order} setOrder={setOrder} createOrder={createOrder} setShowForm={setShowForm} /> }
-                    {/* {showForm && <FormOrder order={order} setOrder={setOrder} />} */}
                     
                 </>
             )
@@ -125,8 +117,6 @@ const Cart = () => {
             </Spinner> 
             }
 
-            {/* { (idOrder) && <Alerta mensaje={`Gracias por su compra. Su id de pedido es ${idOrder}`} /> } */}
-            
         </div>
     )
 }

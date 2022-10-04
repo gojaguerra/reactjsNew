@@ -37,7 +37,7 @@ export const CartProvider = ({ children }) => {
         setCart([...newCart, { ...item, quantity: newQuantity }]);
         ToastIng.fire({
           icon: "success",
-          title: `Se agrego ${quantity} producto al carrito`, //'Ingreso al pedido'
+          title: `Se agrego ${quantity} ${quantity>1 ?"productos" : "producto"} al carrito`, //'Ingreso al pedido'
         });
       }
       return true;
@@ -45,7 +45,7 @@ export const CartProvider = ({ children }) => {
       setCart([...cart, { ...item, quantity }]);
       ToastIng.fire({
         icon: "success",
-        title: `Se agrego ${quantity} producto al carrito`, //'Ingreso al pedido'
+        title: `Se agrego ${quantity} ${quantity>1 ?"productos" : "producto"} al carrito`, //'Ingreso al pedido'
       });
       return true;
     }
