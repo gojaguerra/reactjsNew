@@ -19,17 +19,6 @@ const ItemDetail = ({ data }) => {
     setEstadoCarrito(addToCart(data, cantidad));
     };
 
-  const handleClick = () =>{
-    /* Navigate("/cart"); */
-    /* alert(`Se agrego ${initialItem} producto al carrito`); */
-
-  };
-
-/*   const handleBorrar = ()=>{
-    removeItem(data.id);
-    
-  }; */
-
   return (
     <>
     <Link to={"/"}>Volver</Link>
@@ -44,7 +33,7 @@ const ItemDetail = ({ data }) => {
         {quantityCart>0 && 
           <Link
             to={'/cart'} >
-            <Button className='btn-warning' onClick={handleClick}>Terminar Comprar</Button>        
+            <Button className='btn-warning' >Terminar Comprar</Button>        
           </Link>  
         }
       </Card.Body>

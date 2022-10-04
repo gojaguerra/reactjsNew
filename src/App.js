@@ -5,7 +5,6 @@ import NavBar from './components/NavBar';
 import ItemListContainer  from './Containers/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from "./Containers/ItemDetailContainer/ItemDetailContainer";
 import CartFinal from './components/Cart/CartFinal';
-/* import FormData from './components/Cart/FormData'; */
 import { CartProvider } from './context/cartProvider';
 import Cart from './components/Cart/Cart';
 
@@ -25,7 +24,6 @@ function App() {
               <Route path="cart" element={<Cart />} />
               <Route path="category/:categoryName" element={<ItemListContainer />} />
               <Route path="cart/order/:idFirestore" element={<CartFinal />} />
-              {/* <Route path="cart/form" element={<FormData />} /> */}
             </Routes>
           </div>
         </div>
