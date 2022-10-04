@@ -188,8 +188,12 @@
     font-size: 18px; 
   }
 
-  /* @media screen and (max-width: 900px) {
+  @media screen and (max-width: 900px) {
     .modal-carrito {
+      display: flex;
       flex-flow: column wrap;
+      width: 90%;
+      margin: auto;
+      
     }
-  } */
+  }
