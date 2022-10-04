@@ -15,7 +15,7 @@ José Guerra
 
 https://reactjs-new.vercel.app/ 
 
-! [](tiendafrangue.gif)
+![Demo](tiendafrangue.gif)
 
 
 ## Dependencias
